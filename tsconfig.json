@@ -6,12 +6,24 @@
     "allowJs": true,
     "sourceMap": false,
     "module": "CommonJS",
-    "target": "ES2017",
+    "target": "ESNext",
     "outDir": "dist",
-    "baseUrl": "./",
+    "baseUrl": "./"
   },
   "include": [
     "./types/*",
-    "./plugins/*/index.ts"
+    "./src/*",
+    "src/music/audiomack",
+    "src/music/bilibili",
+    "src/music/geciqianxun",
+    "src/music/geciwang",
+    "src/music/kuaishou",
+    "src/music/maoerfm",
+    "src/music/navidrome",
+    "src/music/suno",
+    "src/music/udio",
+    "src/music/webdav",
+    "src/music/yinyuetai",
+    "src/music/youtube"
   ]
 }

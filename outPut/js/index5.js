@@ -1,20 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const axios_1 = require("axios");
-const pageSize = 20;
-function formatMusicItem(it) {
+var s = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
+import { a as p } from "./index13.js";
+var d = s((l, i) => {
+  function c(e) {
     return {
-        id: it.photo.id,
-        title: it.photo.caption,
-        artist: it.author.name,
-        artwork: it.photo.coverUrl || it.photo.photoUrl,
-        manifest: it.photo.manifest
+      id: e.photo.id,
+      title: e.photo.caption,
+      artist: e.author.name,
+      artwork: e.photo.coverUrl || e.photo.photoUrl,
+      manifest: e.photo.manifest
     };
-}
-async function searchMusic(query, page) {
-    var _a, _b;
-    const body = {
-        query: `fragment photoContent on PhotoEntity {
+  }
+  async function m(e, t) {
+    var a, n;
+    const r = {
+      query: `fragment photoContent on PhotoEntity {
         __typename
         id
         duration
@@ -125,38 +124,33 @@ async function searchMusic(query, page) {
           __typename
         }
       }`,
-        variables: {
-            keyword: query,
-            page: "search",
-            pcursor: `${page - 1}`,
-        },
-    };
-    const result = (await axios_1.default.post("https://www.kuaishou.com/graphql", body)).data.data.visionSearchPhoto;
+      variables: {
+        keyword: e,
+        page: "search",
+        pcursor: `${t - 1}`
+      }
+    }, o = (await p.post("https://www.kuaishou.com/graphql", r)).data.data.visionSearchPhoto;
     return {
-        isEnd: !(result === null || result === void 0 ? void 0 : result.pcursor) || (result === null || result === void 0 ? void 0 : result.pcursor) === 'no_more',
-        data: (_b = (_a = result === null || result === void 0 ? void 0 : result.feeds) === null || _a === void 0 ? void 0 : _a.map) === null || _b === void 0 ? void 0 : _b.call(_a, formatMusicItem)
+      isEnd: !(o != null && o.pcursor) || (o == null ? void 0 : o.pcursor) === "no_more",
+      data: (n = (a = o == null ? void 0 : o.feeds) == null ? void 0 : a.map) == null ? void 0 : n.call(a, c)
     };
-}
-module.exports = {
+  }
+  i.exports = {
     platform: "快手",
     version: "0.0.1",
-    author: '猫头猫',
+    author: "猫头猫",
     srcUrl: "https://gitee.com/maotoumao/MusicFreePlugins/raw/v0.1/dist/kuaishou/index.js",
     cacheControl: "no-cache",
     supportedSearchType: ["music"],
-    async search(query, page, type) {
-        if (type === "music") {
-            return await searchMusic(query, page);
-        }
+    async search(e, t, r) {
+      if (r === "music")
+        return await m(e, t);
     },
-    async getMediaSource(musicItem, quality) {
-        if (!musicItem.manifest) {
-            return;
-        }
-        const adaptationSet = musicItem.manifest.adaptationSet;
-        const representation = adaptationSet[0].representation;
-        return {
-            url: representation[0].url
-        };
-    },
-};
+    async getMediaSource(e, t) {
+      return e.manifest ? {
+        url: e.manifest.adaptationSet[0].representation[0].url
+      } : void 0;
+    }
+  };
+});
+export default d();
