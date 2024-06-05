@@ -1,13 +1,11 @@
 {
-  "name": "MusicFreePlugins",
+  "name": "music-video-plugins",
   "version": "1.0.0",
-  "description": "MusicFree插件",
-  "main": "dist/plugin.js",
+  "description": "MusicVideoPlugins",
+  "main": "src/main.js",
   "scripts": {
     "serve": "http-server .",
-    "build-plugins": "vite build",
-    "build": "tsc & node ./scripts/generate.js",
-    "publish": "git checkout master & git merge v0.1 & git push & git checkout v0.1 & git push",
+    "build": "vite build",
     "test-kugou": "ts-node -T ./plugins/kugou/index.ts",
     "test-navidrome": "ts-node -T ./plugins/navidrome/index.ts",
     "test-audiomack": "ts-node -T ./plugins/audiomack/index.ts",
