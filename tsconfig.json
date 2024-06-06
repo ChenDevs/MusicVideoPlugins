@@ -24,6 +24,18 @@
     "src/music/udio",
     "src/music/webdav",
     "src/music/yinyuetai",
-    "src/music/youtube"
+    "src/music/youtube",
+    "src/music/audiomack.ts",
+    "src/music/bilibili.ts",
+    "src/music/geciqianxun.ts",
+    "src/music/geciwang.ts",
+    "src/music/kuaishou.ts",
+    "src/music/maoerfm.ts",
+    "src/music/navidrome.ts",
+    "src/music/suno.ts",
+    "src/music/udio.ts",
+    "src/music/webdav.ts",
+    "src/music/yinyuetai.ts",
+    "src/music/youtube.ts"
   ]
 }
